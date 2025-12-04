@@ -1,0 +1,72 @@
+/**
+ * Estilos do ErrorAlert
+ */
+
+.error-alert {
+  position: fixed;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 1000;
+  animation: slideIn 300ms ease-in-out;
+}
+
+.error-content {
+  background-color: rgba(255, 107, 107, 0.1);
+  border: 1px solid var(--error-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  color: var(--error-color);
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+}
+
+.error-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.error-content p {
+  margin: 0;
+  font-size: 14px;
+  flex: 1;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: var(--error-color);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.btn-close:hover {
+  transform: scale(1.2);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-alert {
+    left: var(--spacing-lg);
+    right: var(--spacing-lg);
+  }
+
+  .error-content {
+    max-width: 100%;
+  }
+}

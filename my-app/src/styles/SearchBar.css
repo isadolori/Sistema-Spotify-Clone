@@ -1,0 +1,60 @@
+/**
+ * Estilos do SearchBar
+ */
+
+.search-bar {
+  display: flex;
+  gap: var(--spacing-sm);
+  background-color: var(--bg-tertiary);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-lg);
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.search-bar:focus-within {
+  background-color: var(--bg-secondary);
+  box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.1);
+}
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 14px;
+  padding: 0;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.btn-clear,
+.btn-search {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 18px;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-clear:hover,
+.btn-search:hover {
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    max-width: 100%;
+  }
+}
