@@ -1,8 +1,8 @@
 # 🎵 SpotifyClone - Arquitetura de Microsserviços
 
-Bem-vindo ao SpotifyClone! Este projeto é uma aplicação web tipo Spotify estruturada para suportar uma arquitetura de microsserviços, com foco em escalabilidade e separação de responsabilidades.
+Este projeto é uma aplicação web tipo Spotify estruturada para suportar uma arquitetura de microsserviços, com foco em escalabilidade e separação de responsabilidades.
 
-## 📋 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 src/
@@ -120,7 +120,7 @@ POST   /api/payments           - Processar pagamento
 GET    /api/payments/invoices  - Listar faturas
 ```
 
-## 🔧 Configuração
+## Configuração
 
 ### Variáveis de Ambiente
 
@@ -136,7 +136,7 @@ REACT_APP_PAYMENT_SERVICE_URL=http://localhost:3003
 REACT_APP_API_URL=http://localhost:3000
 ```
 
-## 🚀 Como Começar
+## Como Começar
 
 ### 1. Instalar dependências
 ```bash
@@ -154,13 +154,13 @@ A aplicação abrirá em `http://localhost:3000`
 
 Você precisará criar e rodar os 3 microsserviços nas portas especificadas. Cada um deve seguir o padrão de endpoints documentados acima.
 
-## 📦 Dependências Principais
+## Dependências Principais
 
 - **react**: Framework UI
 - **react-dom**: Renderização no DOM
 - **react-scripts**: Build tool
 
-## 🎨 Design System
+## Design System
 
 O projeto utiliza um design system baseado em Spotify com:
 
@@ -181,7 +181,7 @@ Todos os estilos utilizam CSS Variables definidas em `src/styles/globals.css`:
 /* ... etc */
 ```
 
-## 🔄 Fluxo de Dados
+## Fluxo de Dados
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -197,7 +197,7 @@ Todos os estilos utilizam CSS Variables definidas em `src/styles/globals.css`:
 └──────┘ └───────┘ └───────┘
 ```
 
-## 📝 Convenções de Código
+## Convenções de Código
 
 ### Services
 - Métodos async/await
@@ -215,7 +215,7 @@ Todos os estilos utilizam CSS Variables definidas em `src/styles/globals.css`:
 - Dispatch de ações com useReducer
 - useCallback para otimização
 
-## 🔐 Autenticação
+## Autenticação
 
 O token JWT é armazenado em `localStorage`:
 
@@ -231,7 +231,7 @@ headers: {
 }
 ```
 
-## 🧪 Próximos Passos
+## Próximos Passos
 
 1. **Implementar Microsserviços**: Criar os 3 microsserviços em Node.js/Express, Python/FastAPI, Java/Spring, etc.
 2. **Adicionar React Router**: Substituir roteamento manual por `react-router-dom`
@@ -241,13 +241,13 @@ headers: {
 6. **Containerização**: Docker e Docker Compose
 7. **Documentação API**: Swagger/OpenAPI para os microsserviços
 
-## 📚 Recursos Úteis
+## Recursos Úteis
 
 - [Documentação React](https://react.dev)
 - [Context API](https://react.dev/reference/react/useContext)
 - [Padrões de Microsserviços](https://microservices.io/)
 
-## 📄 Licença
+## Licença
 
 Este projeto é fornecido como exemplo de arquitetura. Sinta-se livre para usá-lo e modificá-lo.
 
