@@ -33,7 +33,7 @@ function Player({ song, isPlaying, onPlay, onPause, onNext, onPrevious }) {
         </div>
         <div className="player-details">
           <h4>{song.title}</h4>
-          <p>{song.artist?.name || 'Artista desconhecido'}</p>
+          <p>{song.artist || 'Artista desconhecido'}</p>
         </div>
       </div>
 

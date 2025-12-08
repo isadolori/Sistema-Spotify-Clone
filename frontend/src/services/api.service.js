@@ -1,8 +1,3 @@
-/**
- * Serviço genérico de API para comunicação com microsserviços
- * Implementa retry, timeout e tratamento de erros centralizado
- */
-
 import { API_TIMEOUTS } from '../config/api.config';
 
 class ApiService {
@@ -11,12 +6,12 @@ class ApiService {
   }
 
   /**
-   * Faz uma requisição HTTP com tratamento de erro centralizado
-   * @param {string} url - URL completa da requisição
-   * @param {object} options - Opções fetch
-   * @param {number} retries - Número de tentativas
+   * @param {string} url
+   * @param {object} options
+   * @param {number} retries
    * @returns {Promise<object>}
    */
+
   async request(url, options = {}, retries = 3) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), this.timeout);
@@ -54,9 +49,6 @@ class ApiService {
     }
   }
 
-  /**
-   * GET request
-   */
   get(url, options = {}) {
     return this.request(url, {
       method: 'GET',
@@ -64,9 +56,6 @@ class ApiService {
     });
   }
 
-  /**
-   * POST request
-   */
   post(url, data = {}, options = {}) {
     return this.request(url, {
       method: 'POST',
@@ -75,9 +64,6 @@ class ApiService {
     });
   }
 
-  /**
-   * PUT request
-   */
   put(url, data = {}, options = {}) {
     return this.request(url, {
       method: 'PUT',
@@ -86,9 +72,6 @@ class ApiService {
     });
   }
 
-  /**
-   * DELETE request
-   */
   delete(url, options = {}) {
     return this.request(url, {
       method: 'DELETE',
@@ -96,9 +79,6 @@ class ApiService {
     });
   }
 
-  /**
-   * Verifica se o erro é recuperável (para retry)
-   */
   isRetryableError(error) {
     if (error.name === 'AbortError') return true;
     if (error instanceof ApiError && error.status >= 500) return true;
@@ -106,24 +86,14 @@ class ApiService {
     return false;
   }
 
-  /**
-   * Delay utilitário para retry
-   */
   delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  /**
-   * Define timeout customizado
-   */
   setTimeout(ms) {
     this.timeout = ms;
   }
 }
-
-/**
- * Classe customizada para erros de API
- */
 export class ApiError extends Error {
   constructor(message, status, data = {}) {
     super(message);

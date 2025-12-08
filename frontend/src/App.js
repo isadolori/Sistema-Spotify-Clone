@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
 import { MusicProvider } from './context/MusicContext';
 import { UserProvider, useUserContext } from './context/UserContext';
-import { PaymentProvider } from './context/PaymentContext';
 import Header from './components/Header';
 import Player from './components/Player';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Search from './pages/Search';
+import Songs from './pages/Songs';
+import Artists from './pages/Artists';
+import Albums from './pages/Albums';
+import Genres from './pages/Genres';
 import './styles/globals.css';
 import './App.css';
 
-/**
- * Router simples para navegação entre páginas
- * Você pode substituir por React Router depois se desejar
- */
 function AppRouter() {
   const { isAuthenticated } = useUserContext();
   const [currentSong, setCurrentSong] = React.useState(null);
@@ -27,15 +26,15 @@ function AppRouter() {
   const renderPage = () => {
     const path = getPath();
 
-    // Páginas públicas
     if (path === '/login') return <Login />;
     if (path === '/register') return <Register />;
-
-    // Páginas que requerem autenticação
     if (path === '/search' || path === '/search/') return <Search />;
+    if (path === '/explore' || path === '/explore/') return <Songs />;
+    if (path === '/artists' || path === '/artists/') return <Artists />;
+    if (path === '/albums' || path === '/albums/') return <Albums />;
+    if (path === '/genres' || path === '/genres/') return <Genres />;
     if (path === '/' || path === '') return <Home />;
 
-    // Página padrão
     return <Home />;
   };
 
@@ -59,17 +58,11 @@ function AppRouter() {
   );
 }
 
-/**
- * Componente principal da aplicação
- * Envolve todos os Providers necessários
- */
 function App() {
   return (
     <UserProvider>
       <MusicProvider>
-        <PaymentProvider>
-          <AppRouter />
-        </PaymentProvider>
+        <AppRouter />
       </MusicProvider>
     </UserProvider>
   );

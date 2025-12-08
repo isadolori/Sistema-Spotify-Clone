@@ -21,8 +21,8 @@ function AlbumCard({ album, onPlay, onViewDetails }) {
         </div>
       )}
       <div className="album-info">
-        <h3 className="album-name">{album.name}</h3>
-        <p className="album-artist">{album.artist?.name || 'Artista desconhecido'}</p>
+        <h3 className="album-name">{album.title}</h3>
+        <p className="album-artist">{album.artist || 'Artista desconhecido'}</p>
         <p className="album-year">{album.releaseYear || new Date().getFullYear()}</p>
         <span className="song-count">{album.songCount || 0} músicas</span>
       </div>

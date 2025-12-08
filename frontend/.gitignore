@@ -1,4 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+.gitignore
 
 # dependencies
 /node_modules
@@ -14,6 +15,7 @@
 # misc
 .DS_Store
 .env
+.env.local
 .env.exemple
 .env.development.local
 .env.test.local
@@ -22,3 +24,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Documentation - Arquivos de documentação
+../DOCUMENTACAO/
+../DOCUMENTACAO/**
+
+# Markdown files in root
+../*.md

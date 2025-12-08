@@ -1,8 +1,3 @@
-/**
- * Context de Música - Gerencia o estado de músicas, artistas, álbuns
- * Evita prop drilling e centraliza dados relacionados à música
- */
-
 import React, { createContext, useContext, useState, useCallback, useReducer } from 'react';
 import musicService from '../services/music.service';
 

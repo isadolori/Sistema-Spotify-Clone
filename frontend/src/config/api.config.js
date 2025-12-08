@@ -27,16 +27,6 @@ export const MICROSERVICES = {
       PROFILE: '/api/profile',
     }
   },
-
-  // Microsserviço de Pagamento
-  PAYMENT_SERVICE: {
-    BASE_URL: process.env.REACT_APP_PAYMENT_SERVICE_URL || 'http://localhost:3003',
-    ENDPOINTS: {
-      PLANS: '/api/plans',
-      SUBSCRIPTIONS: '/api/subscriptions',
-      PAYMENTS: '/api/payments',
-    }
-  }
 };
 
 export const API_TIMEOUTS = {

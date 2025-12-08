@@ -1,8 +1,3 @@
-/**
- * Context de Usuário - Gerencia autenticação e estado do usuário
- * Centraliza dados de login, perfil e preferências
- */
-
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import userService from '../services/user.service';
 

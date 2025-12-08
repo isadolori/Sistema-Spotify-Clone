@@ -25,8 +25,8 @@ function SongCard({ song, onPlay, onAddToPlaylist }) {
       )}
       <div className="song-info">
         <h3 className="song-title">{song.title}</h3>
-        <p className="song-artist">{song.artist?.name || 'Artista desconhecido'}</p>
-        <p className="song-album">{song.album?.name || ''}</p>
+        <p className="song-artist">{song.artist || 'Artista desconhecido'}</p>
+        <p className="song-album">{song.album || ''}</p>
         <span className="song-duration">{song.duration || '3:45'}</span>
       </div>
     </div>
