@@ -1,7 +1,3 @@
-/**
- * Página Register - Registro de novos usuários
- */
-
 import React, { useState } from 'react';
 import { useUserContext } from '../context/UserContext';
 import ErrorAlert from '../components/ErrorAlert';
@@ -39,7 +35,6 @@ function Register() {
         email: formData.email,
         password: formData.password,
       });
-      // Redirecionar para home
       window.location.href = '/';
     } catch (err) {
       console.error('Erro ao registrar:', err);

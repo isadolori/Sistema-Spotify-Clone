@@ -1,7 +1,3 @@
-/**
- * Página Genres - Lista completa de gêneros
- */
-
 import React, { useEffect } from 'react';
 import { useMusicContext } from '../context/MusicContext';
 import Loading from '../components/Loading';
@@ -22,9 +18,7 @@ function Genres() {
   }, []);
 
   const handleSelectGenre = (genre) => {
-    // Redirecionar para página de gênero (pode ser implementado depois)
     console.log('Gênero selecionado:', genre.name);
-    // window.location.href = `/genre/${genre.id}`;
   };
 
   if (isLoading && genres.length === 0) {
@@ -36,13 +30,11 @@ function Genres() {
       <div className="container">
         {error && <ErrorAlert message={error} onClose={clearError} />}
 
-        {/* Seção de Cabeçalho */}
         <section className="search-section">
           <h1 className="welcome-title">Todos os Gêneros</h1>
           <p className="welcome-subtitle">Explore diferentes estilos musicais</p>
         </section>
 
-        {/* Seção de Gêneros */}
         {genres.length > 0 && (
           <section className="featured-section">
             <div style={{
@@ -75,7 +67,6 @@ function Genres() {
                     e.currentTarget.style.boxShadow = 'none';
                   }}
                 >
-                  {/* Imagem do Gênero */}
                   <div style={{
                     flex: 1,
                     backgroundColor: 'var(--bg-secondary)',
@@ -111,7 +102,6 @@ function Genres() {
                     )}
                   </div>
 
-                  {/* Informações */}
                   <div style={{
                     padding: 'var(--spacing-md)',
                     minHeight: '60px',

@@ -1,8 +1,3 @@
-/**
- * Configuração centralizada de URLs dos microsserviços
- * Permite fácil mudança entre ambientes (dev, staging, prod)
- */
-
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 export const MICROSERVICES = {
@@ -30,9 +25,9 @@ export const MICROSERVICES = {
 };
 
 export const API_TIMEOUTS = {
-  SHORT: 5000,    // 5 segundos
-  MEDIUM: 15000,  // 15 segundos
-  LONG: 30000,    // 30 segundos
+  SHORT: 5000,
+  MEDIUM: 15000,
+  LONG: 30000,
 };
 
 export default {

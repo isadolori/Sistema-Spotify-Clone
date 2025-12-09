@@ -1,7 +1,3 @@
-/**
- * Página Home - Página inicial com destaques
- */
-
 import React, { useEffect, useState } from 'react';
 import { useMusicContext } from '../context/MusicContext';
 import SearchBar from '../components/SearchBar';
@@ -22,7 +18,6 @@ function Home() {
     loadSongs, 
     loadArtists, 
     loadAlbums,
-    setCurrentSong,
     clearError 
   } = useMusicContext();
 
@@ -47,34 +42,7 @@ function Home() {
   };
 
   const handleSearch = (query) => {
-    // Redirecionar para página de busca
     window.location.href = `/search?q=${encodeURIComponent(query)}`;
-  };
-
-  const handlePlaySong = (song) => {
-    setCurrentSong(song);
-    console.log('Tocando:', song.title);
-  };
-
-  const handleAddToPlaylist = (song) => {
-    console.log('Adicionado à playlist:', song.title);
-    // Aqui irá a lógica de adicionar à playlist
-  };
-
-  const handleFollowArtist = (artist) => {
-    console.log('Seguindo artista:', artist.name);
-  };
-
-  const handleViewArtistDetails = (artist) => {
-    window.location.href = `/artist/${artist.id}`;
-  };
-
-  const handlePlayAlbum = (album) => {
-    console.log('Tocando álbum:', album.name);
-  };
-
-  const handleViewAlbumDetails = (album) => {
-    window.location.href = `/album/${album.id}`;
   };
 
   if (isLoading && songs.length === 0) {
@@ -86,14 +54,14 @@ function Home() {
       <div className="container">
         {error && <ErrorAlert message={error} onClose={clearError} />}
 
-        {/* Seção de busca destaque */}
+        {/* busca destaque */}
         <section className="search-section">
           <h1 className="welcome-title">Bem-vindo à Música</h1>
           <p className="welcome-subtitle">Descubra suas músicas favoritas</p>
           <SearchBar onSearch={handleSearch} />
         </section>
 
-        {/* Seção de músicas em destaque */}
+        {/* músicas em destaque */}
         {songs.length > 0 && (
           <section className="featured-section">
             <div className="section-header">
@@ -105,15 +73,13 @@ function Home() {
                 <SongCard
                   key={song.id}
                   song={song}
-                  onPlay={handlePlaySong}
-                  onAddToPlaylist={handleAddToPlaylist}
                 />
               ))}
             </div>
           </section>
         )}
 
-        {/* Seção de artistas em destaque */}
+        {/* artistas em destaque */}
         {artists.length > 0 && (
           <section className="featured-section">
             <div className="section-header">
@@ -125,15 +91,13 @@ function Home() {
                 <ArtistCard
                   key={artist.id}
                   artist={artist}
-                  onFollow={handleFollowArtist}
-                  onViewDetails={handleViewArtistDetails}
                 />
               ))}
             </div>
           </section>
         )}
 
-        {/* Seção de álbuns recentes */}
+        {/* álbuns recentes */}
         {albums.length > 0 && (
           <section className="featured-section">
             <div className="section-header">
@@ -145,15 +109,13 @@ function Home() {
                 <AlbumCard
                   key={album.id}
                   album={album}
-                  onPlay={handlePlayAlbum}
-                  onViewDetails={handleViewAlbumDetails}
                 />
               ))}
             </div>
           </section>
         )}
 
-        {/* Seção de recomendações personalizadas */}
+        {/* recomendações personalizadas */}
         {songs.length > 5 && (
           <section className="featured-section">
             <div className="section-header">
@@ -164,8 +126,6 @@ function Home() {
                 <SongCard
                   key={song.id}
                   song={song}
-                  onPlay={handlePlaySong}
-                  onAddToPlaylist={handleAddToPlaylist}
                 />
               ))}
             </div>

@@ -5,6 +5,21 @@ const UserService = require('../services/UserService');
 const UserController = {
     async register(req, res) {
         try {
+            const { name, email, password, confirmPassword } = req.body;
+
+            // Validação básica
+            if (!name || !email || !password) {
+                return res.status(400).json({ 
+                    error: 'Name, email, and password are required.' 
+                });
+            }
+
+            if (password !== confirmPassword) {
+                return res.status(400).json({ 
+                    error: 'Passwords do not match.' 
+                });
+            }
+
             const newUser = await UserService.registerNewUser(req.body);
             return res.status(201).json({
                 message: 'User registered successfully.',
@@ -13,7 +28,7 @@ const UserController = {
         } catch (error) {
             console.error('Registration error:', error.message);
             if (error.message === 'Email already in use.') {
-                return res.status(409).json({ error: 'Conflict: Email already registered.' }); 
+                return res.status(409).json({ error: 'Email already registered.' }); 
             }
             return res.status(500).json({ error: 'Internal server error during registration.' });
         }
@@ -21,6 +36,15 @@ const UserController = {
 
     async login(req, res) {
         try {
+            const { email, password } = req.body;
+
+            // Validação básica
+            if (!email || !password) {
+                return res.status(400).json({ 
+                    error: 'Email and password are required.' 
+                });
+            }
+
             const user = await UserService.authenticateUser(req.body);
             return res.status(200).json({
                 message: 'Login successful.',

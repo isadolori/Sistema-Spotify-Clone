@@ -1,11 +1,7 @@
-/**
- * Componente ArtistCard - Card individual de artista
- */
-
 import React from 'react';
 import '../styles/ArtistCard.css';
 
-function ArtistCard({ artist, onFollow, onViewDetails }) {
+function ArtistCard({ artist }) {
   if (!artist) return null;
 
   return (
@@ -15,17 +11,7 @@ function ArtistCard({ artist, onFollow, onViewDetails }) {
       )}
       <div className="artist-info">
         <h3 className="artist-name">{artist.name}</h3>
-        <p className="artist-followers">
-          {artist.followers?.toLocaleString() || '0'} seguidores
-        </p>
-      </div>
-      <div className="artist-actions">
-        <button className="btn-follow" onClick={() => onFollow(artist)}>
-          Seguir
-        </button>
-        <button className="btn-details" onClick={() => onViewDetails(artist)}>
-          Detalhes
-        </button>
+        {artist.verified && <span className="artist-verified">✓ Verificado</span>}
       </div>
     </div>
   );

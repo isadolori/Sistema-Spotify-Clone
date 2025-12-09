@@ -1,7 +1,3 @@
-/**
- * Página Artists - Lista completa de artistas
- */
-
 import React, { useEffect, useState } from 'react';
 import { useMusicContext } from '../context/MusicContext';
 import ArtistCard from '../components/ArtistCard';
@@ -24,14 +20,6 @@ function Artists() {
     loadArtists({ limit: 50, sort: sortBy });
   }, [sortBy]);
 
-  const handleFollowArtist = (artist) => {
-    console.log('Seguindo artista:', artist.name);
-  };
-
-  const handleViewArtistDetails = (artist) => {
-    window.location.href = `/artist/${artist.id}`;
-  };
-
   if (isLoading && artists.length === 0) {
     return <Loading message="Carregando artistas..." />;
   }
@@ -41,12 +29,10 @@ function Artists() {
       <div className="container">
         {error && <ErrorAlert message={error} onClose={clearError} />}
 
-        {/* Seção de Cabeçalho */}
         <section className="search-section">
           <h1 className="welcome-title">Todos os Artistas</h1>
           <p className="welcome-subtitle">Descubra artistas incríveis</p>
           
-          {/* Filtros */}
           <div style={{ marginTop: '20px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
             <select 
               value={sortBy} 
@@ -68,7 +54,6 @@ function Artists() {
           </div>
         </section>
 
-        {/* Seção de Artistas */}
         {artists.length > 0 && (
           <section className="featured-section">
             <div className="grid grid-5">
@@ -76,8 +61,6 @@ function Artists() {
                 <ArtistCard
                   key={artist.id}
                   artist={artist}
-                  onFollow={handleFollowArtist}
-                  onViewDetails={handleViewArtistDetails}
                 />
               ))}
             </div>

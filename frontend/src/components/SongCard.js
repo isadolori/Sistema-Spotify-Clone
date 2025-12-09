@@ -1,11 +1,7 @@
-/**
- * Componente SongCard - Card individual de música
- */
-
 import React from 'react';
 import '../styles/SongCard.css';
 
-function SongCard({ song, onPlay, onAddToPlaylist }) {
+function SongCard({ song }) {
   if (!song) return null;
 
   return (
@@ -13,14 +9,6 @@ function SongCard({ song, onPlay, onAddToPlaylist }) {
       {song.coverUrl && (
         <div className="song-cover">
           <img src={song.coverUrl} alt={song.title} />
-          <div className="overlay">
-            <button className="btn-play" onClick={() => onPlay(song)}>
-              ▶
-            </button>
-            <button className="btn-add" onClick={() => onAddToPlaylist(song)}>
-              +
-            </button>
-          </div>
         </div>
       )}
       <div className="song-info">

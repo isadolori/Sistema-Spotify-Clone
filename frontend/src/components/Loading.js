@@ -1,7 +1,3 @@
-/**
- * Componente Loading - Indicador de carregamento
- */
-
 import React from 'react';
 import '../styles/Loading.css';
 

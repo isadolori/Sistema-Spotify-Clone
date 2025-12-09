@@ -1,7 +1,3 @@
-/**
- * Página Search - Busca de músicas, artistas e álbuns
- */
-
 import React, { useState, useEffect } from 'react';
 import { useMusicContext } from '../context/MusicContext';
 import SearchBar from '../components/SearchBar';
@@ -20,7 +16,6 @@ function Search() {
     isLoading, 
     error, 
     searchSongs,
-    setCurrentSong,
     clearError 
   } = useMusicContext();
 
@@ -44,7 +39,6 @@ function Search() {
     if (!searchQuery.trim()) return;
     try {
       await searchSongs(searchQuery);
-      // Aqui você pode adicionar mais buscas para artistas e álbuns
     } catch (err) {
       console.error('Erro ao buscar:', err);
     }
@@ -54,14 +48,6 @@ function Search() {
     setQuery(newQuery);
     performSearch(newQuery);
     window.history.pushState({}, '', `/search?q=${encodeURIComponent(newQuery)}`);
-  };
-
-  const handlePlaySong = (song) => {
-    setCurrentSong(song);
-  };
-
-  const handleAddToPlaylist = (song) => {
-    console.log('Adicionado à playlist:', song.title);
   };
 
   if (isLoading && !query) {
@@ -96,8 +82,6 @@ function Search() {
                           <SongCard
                             key={song.id}
                             song={song}
-                            onPlay={handlePlaySong}
-                            onAddToPlaylist={handleAddToPlaylist}
                           />
                         ))}
                       </div>
@@ -112,8 +96,6 @@ function Search() {
                           <ArtistCard
                             key={artist.id}
                             artist={artist}
-                            onFollow={() => console.log('Seguindo:', artist.name)}
-                            onViewDetails={() => window.location.href = `/artist/${artist.id}`}
                           />
                         ))}
                       </div>
@@ -128,8 +110,6 @@ function Search() {
                           <AlbumCard
                             key={album.id}
                             album={album}
-                            onPlay={() => console.log('Tocando:', album.name)}
-                            onViewDetails={() => window.location.href = `/album/${album.id}`}
                           />
                         ))}
                       </div>

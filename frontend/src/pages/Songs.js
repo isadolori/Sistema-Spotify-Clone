@@ -1,7 +1,3 @@
-/**
- * Página Songs - Lista completa de músicas
- */
-
 import React, { useEffect, useState } from 'react';
 import { useMusicContext } from '../context/MusicContext';
 import SongCard from '../components/SongCard';
@@ -15,7 +11,6 @@ function Songs() {
     isLoading, 
     error, 
     loadSongs,
-    setCurrentSong,
     clearError 
   } = useMusicContext();
 
@@ -24,15 +19,6 @@ function Songs() {
   useEffect(() => {
     loadSongs({ limit: 50, sort: sortBy });
   }, [sortBy]);
-
-  const handlePlaySong = (song) => {
-    setCurrentSong(song);
-    console.log('Tocando:', song.title);
-  };
-
-  const handleAddToPlaylist = (song) => {
-    console.log('Adicionado à playlist:', song.title);
-  };
 
   if (isLoading && songs.length === 0) {
     return <Loading message="Carregando músicas..." />;
@@ -43,12 +29,10 @@ function Songs() {
       <div className="container">
         {error && <ErrorAlert message={error} onClose={clearError} />}
 
-        {/* Seção de Cabeçalho */}
         <section className="search-section">
           <h1 className="welcome-title">Todas as Músicas</h1>
           <p className="welcome-subtitle">Explore toda a nossa biblioteca de músicas</p>
           
-          {/* Filtros */}
           <div style={{ marginTop: '20px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
             <select 
               value={sortBy} 
@@ -70,7 +54,6 @@ function Songs() {
           </div>
         </section>
 
-        {/* Seção de Músicas */}
         {songs.length > 0 && (
           <section className="featured-section">
             <div className="grid grid-5">
@@ -78,8 +61,6 @@ function Songs() {
                 <SongCard
                   key={song.id}
                   song={song}
-                  onPlay={handlePlaySong}
-                  onAddToPlaylist={handleAddToPlaylist}
                 />
               ))}
             </div>

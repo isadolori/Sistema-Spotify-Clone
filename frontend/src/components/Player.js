@@ -1,7 +1,3 @@
-/**
- * Componente Player - Player de música
- */
-
 import React, { useState } from 'react';
 import '../styles/Player.css';
 

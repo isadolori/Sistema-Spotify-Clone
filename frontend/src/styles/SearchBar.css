@@ -1,7 +1,3 @@
-/**
- * Estilos do SearchBar
- */
-
 .search-bar {
   display: flex;
   gap: var(--spacing-sm);

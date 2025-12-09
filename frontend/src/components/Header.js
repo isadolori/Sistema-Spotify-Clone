@@ -1,7 +1,3 @@
-/**
- * Componente Header - Barra de navegação principal
- */
-
 import React from 'react';
 import { useUserContext } from '../context/UserContext';
 import '../styles/Header.css';

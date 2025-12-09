@@ -1,7 +1,3 @@
-/**
- * Página Login - Autenticação de usuários
- */
-
 import React, { useState } from 'react';
 import { useUserContext } from '../context/UserContext';
 import ErrorAlert from '../components/ErrorAlert';
@@ -27,7 +23,6 @@ function Login() {
     e.preventDefault();
     try {
       await login(formData.email, formData.password);
-      // Redirecionar para home
       window.location.href = '/';
     } catch (err) {
       console.error('Erro ao fazer login:', err);

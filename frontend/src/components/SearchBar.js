@@ -1,7 +1,3 @@
-/**
- * Componente SearchBar - Barra de busca
- */
-
 import React, { useState } from 'react';
 import '../styles/SearchBar.css';
 

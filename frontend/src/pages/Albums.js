@@ -1,7 +1,3 @@
-/**
- * Página Albums - Lista completa de álbuns
- */
-
 import React, { useEffect, useState } from 'react';
 import { useMusicContext } from '../context/MusicContext';
 import AlbumCard from '../components/AlbumCard';
@@ -24,14 +20,6 @@ function Albums() {
     loadAlbums({ limit: 50, sort: sortBy });
   }, [sortBy]);
 
-  const handlePlayAlbum = (album) => {
-    console.log('Tocando álbum:', album.title);
-  };
-
-  const handleViewAlbumDetails = (album) => {
-    window.location.href = `/album/${album.id}`;
-  };
-
   if (isLoading && albums.length === 0) {
     return <Loading message="Carregando álbuns..." />;
   }
@@ -41,12 +29,10 @@ function Albums() {
       <div className="container">
         {error && <ErrorAlert message={error} onClose={clearError} />}
 
-        {/* Seção de Cabeçalho */}
         <section className="search-section">
           <h1 className="welcome-title">Todos os Álbuns</h1>
           <p className="welcome-subtitle">Explore álbuns de grandes artistas</p>
           
-          {/* Filtros */}
           <div style={{ marginTop: '20px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
             <select 
               value={sortBy} 
@@ -68,7 +54,6 @@ function Albums() {
           </div>
         </section>
 
-        {/* Seção de Álbuns */}
         {albums.length > 0 && (
           <section className="featured-section">
             <div className="grid grid-5">
@@ -76,8 +61,6 @@ function Albums() {
                 <AlbumCard
                   key={album.id}
                   album={album}
-                  onPlay={handlePlayAlbum}
-                  onViewDetails={handleViewAlbumDetails}
                 />
               ))}
             </div>

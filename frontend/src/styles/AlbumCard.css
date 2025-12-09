@@ -1,7 +1,3 @@
-/**
- * Estilos do AlbumCard
- */
-
 .album-card {
   background-color: var(--bg-tertiary);
   border-radius: var(--radius-lg);
@@ -35,41 +31,6 @@
 
 .album-card:hover .album-cover img {
   transform: scale(1.05);
-}
-
-.album-cover .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: var(--transition-normal);
-}
-
-.album-card:hover .album-cover .overlay {
-  opacity: 1;
-}
-
-.overlay .btn-play {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--primary-color);
-  color: var(--text-primary);
-  font-size: 18px;
-  cursor: pointer;
-  transition: var(--transition-fast);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.overlay .btn-play:hover {
-  background-color: #1ed760;
-  transform: scale(1.1);
 }
 
 .album-info {

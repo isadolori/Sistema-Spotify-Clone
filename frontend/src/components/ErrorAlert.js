@@ -1,7 +1,3 @@
-/**
- * Componente ErrorAlert - Exibir mensagens de erro
- */
-
 import React, { useEffect, useState } from 'react';
 import '../styles/ErrorAlert.css';
 

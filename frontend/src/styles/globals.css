@@ -1,7 +1,3 @@
-/**
- * Estilos globais da aplicação
- */
-
 :root {
   /* Cores primárias */
   --primary-color: #1DB954;
@@ -197,7 +193,6 @@ html, body, #root {
   }
 }
 
-/* Links */
 a {
   color: var(--primary-color);
   text-decoration: none;
