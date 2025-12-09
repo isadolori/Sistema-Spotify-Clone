@@ -29,10 +29,3 @@ build/
 # Logs
 logs/
 *.log
-
-# Documentation - Arquivos de documentação
-../DOCUMENTACAO/
-../DOCUMENTACAO/**
-
-# Markdown files in root
-../*.md
