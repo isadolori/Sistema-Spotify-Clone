@@ -53,8 +53,12 @@ app.use((req, res) => {
 app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`✅ Music Service running on port ${PORT}`);
-  console.log(`📍 API: http://localhost:${PORT}`);
-  console.log(`📍 Health: http://localhost:${PORT}/health`);
-});
+
+if (require.main === module) {
+  const PORT = process.env.PORT || 3001;
+  app.listen(PORT, () => {
+    console.log(`Music Service rodando na porta ${PORT}`);
+  });
+}
+
+module.exports = app;
